@@ -15,7 +15,7 @@ public class StdAccess {
 	String cityName;
 	String mailId;
 	String mobileNum;
-	int stdId  ;
+	
 	
 	
 	public static void main(String[]args) throws SQLException  {
@@ -59,7 +59,7 @@ public class StdAccess {
 		try {
 			
 		
-		System.out.println("Your Student ID is :" + (stdId++) );
+		
 		
 		System.out.println("Enter the First Name : ");
 		 firstName = sc.nextLine();
@@ -99,15 +99,14 @@ public class StdAccess {
 			Statement st = con.createStatement();
 			
 			
-			String query = "insert into std_info (std_id , first_name , last_name , user_name , pass_word , city , email_id , mobile_number )"
-					+ " values ('"+(stdId++)+"','"+firstName+"' ,'"+lastName+"' , '"+userName+"' , '"+passWord+"' , '"+cityName+"' , '"+mailId+"' , '"+mobileNum+"') ";
+			String query = "insert into std_info ( first_name , last_name , user_name , pass_word , city , email_id , mobile_number )"
+					+ " values ('"+firstName+"' ,'"+lastName+"' , '"+userName+"' , '"+passWord+"' , '"+cityName+"' , '"+mailId+"' , '"+mobileNum+"') ";
 			
 			st.execute(query);
 			
 			System.out.println(" Registration Successful ");
 			
 			con.close();
-			
 			
 			
 		} catch (ClassNotFoundException e) {
